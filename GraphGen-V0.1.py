@@ -34,3 +34,27 @@ nx.draw_networkx(B, pos=nx.drawing.layout.bipartite_layout(B, ['A','B','C','D','
 # nx.draw_networkx(B, width=4)
 
 print(edges)
+plt.clf()  # clear plot
+# -----------------------------------------------------------------------
+
+import csv
+from operator import itemgetter
+from networkx.algorithms import community #This part of networkx, for community detection, needs to be imported separately.
+
+with open('quakers_nodelist.csv', 'r') as nodecsv: # Open the file
+    nodereader = csv.reader(nodecsv) # Read the csv
+    # Retrieve the data (using Python list comprehension and list slicing to remove the header row, see footnote 3)
+    nodes = [n for n in nodereader][1:]
+
+node_names = [n[0] for n in nodes] # Get a list of only the node names
+
+with open('quakers_edgelist.csv', 'r') as edgecsv: # Open the file
+    edgereader = csv.reader(edgecsv) # Read the csv
+    edges = [tuple(e) for e in edgereader][1:] # Retrieve the data
+
+G = nx.Graph()
+G.add_nodes_from(node_names)
+G.add_edges_from(edges)
+
+
+nx.draw_networkx(G, width= 3, with_labels=True)
