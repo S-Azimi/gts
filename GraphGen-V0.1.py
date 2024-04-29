@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 
 plt.rcParams["figure.figsize"] = [12, 12]
-plt.rcParams["figure.autolayout"] = True
+# plt.rcParams["figure.autolayout"] = True
 
 G= nx.Graph()
 G.add_edge('A','B',weight =13, relation = 'friend')
@@ -20,8 +20,8 @@ G.add_node('A', role='Trader')
 G.add_node('B', role='Analyst')
 G.add_node('C', role='Manager')
 G.nodes(data=True)
+nx.draw_networkx(G, with_labels=True)
 
-# nx.draw_networkx(G, with_labels=True)
 
 #--------------------------------------------------------------------
 

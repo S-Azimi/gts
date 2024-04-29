@@ -6,14 +6,15 @@ import networkx as nx  # pip install networkx
 
 import matplotlib.pyplot as plt
 
+plt.rcParams["figure.figsize"] = [12, 12]
 
 
 
 edges=[]
 nodeNames=[]
 pathNames= [('A',800), ('B',800),('C',800),('D',800),('E',800),('F',800),('G',800),('H',800)]
-pathNames= [('A',80), ('B',80),('C',80),('D',80),('E',80),('F',80),('G',80),('H',80)]
-pathNames= [('A',8), ('B',8),('C',8),('D',8),('E',8),('F',8),('G',8),('H',8)]
+# pathNames= [('A',80), ('B',80),('C',80),('D',80),('E',80),('F',80),('G',80),('H',80)]
+# pathNames= [('A',80), ('B',8),('C',8),('D',8),('E',8),('F',8),('G',8),('H',8)]
 
 for path in pathNames:
     for i in range(path[1]+1):
@@ -35,9 +36,8 @@ G = nx.Graph()
 G.add_nodes_from(nodeNames)
 G.add_edges_from(edges)
 print(G)
-G.clear()
 
-nx.draw_networkx(G, width=1)
+nx.draw_networkx(G, width=1, with_labels=False)
 
 
 #--------------------------------------------------------------------
