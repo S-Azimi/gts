@@ -1,4 +1,6 @@
 # this is graph generation test by Sasan Azimi using "NetworkX"
+# in version 0.2 we want to generate a big graph as simulation of GAS network 
+# this graph consist of several main paths with several points
 
 import networkx as nx  # pip install networkx
 
