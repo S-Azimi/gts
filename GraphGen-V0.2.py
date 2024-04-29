@@ -12,6 +12,8 @@ import matplotlib.pyplot as plt
 edges=[]
 nodeNames=[]
 pathNames= [('A',800), ('B',800),('C',800),('D',800),('E',800),('F',800),('G',800),('H',800)]
+pathNames= [('A',80), ('B',80),('C',80),('D',80),('E',80),('F',80),('G',80),('H',80)]
+pathNames= [('A',8), ('B',8),('C',8),('D',8),('E',8),('F',8),('G',8),('H',8)]
 
 for path in pathNames:
     for i in range(path[1]+1):
@@ -25,32 +27,18 @@ for path in pathNames:
             
 
 
-
+print(nodeNames)
+print(edges)
 
 
 G = nx.Graph()
 G.add_nodes_from(nodeNames)
 G.add_edges_from(edges)
 print(G)
-
+G.clear()
 
 nx.draw_networkx(G, width=1)
 
-
-
-# G.add_edge('A','B',weight =13, relation = 'friend')
-# G.add_edge('B','C',weight =9, relation = 'family')
-# G.add_edge('B','D',weight =7, relation = 'friend')
-# G.add_edge('E','B',weight =13, relation = 'friend')
-# G.add_edge('E','A',weight =13, relation = 'enemy')
-# G.add_edge('F','B',weight =13, relation = 'family')
-# G.edges(data=True)
-# G.add_node('A', role='Trader')
-# G.add_node('B', role='Analyst')
-# G.add_node('C', role='Manager')
-# G.nodes(data=True)
-
-# nx.draw_networkx(G, with_labels=True)
 
 #--------------------------------------------------------------------
 

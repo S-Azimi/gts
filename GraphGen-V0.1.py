@@ -4,17 +4,11 @@ import networkx as nx  # pip install networkx
 
 import matplotlib.pyplot as plt
 
+
+plt.rcParams["figure.figsize"] = [12, 12]
+plt.rcParams["figure.autolayout"] = True
+
 G= nx.Graph()
-
-
-
-
-
-
-
-
-
-
 G.add_edge('A','B',weight =13, relation = 'friend')
 G.add_edge('B','C',weight =9, relation = 'family')
 G.add_edge('B','D',weight =7, relation = 'friend')
@@ -62,6 +56,10 @@ with open('quakers_edgelist.csv', 'r') as edgecsv: # Open the file
     edges = [tuple(e) for e in edgereader][1:] # Retrieve the data
 
 G = nx.Graph()
+
+print(node_names)
+print(edges)
+
 G.add_nodes_from(node_names)
 G.add_edges_from(edges)
 
@@ -88,5 +86,5 @@ subgraph = G.subgraph(largest_component)
 diameter = nx.diameter(subgraph)
 print("Network diameter of largest component:", diameter)
 
-for path in nx.all_simple_paths(G, source="Margaret Fell", target="George Whitehead"):
-    print(path)
+# for path in nx.all_simple_paths(G, source="Margaret Fell", target="George Whitehead"):
+#     print(path)
