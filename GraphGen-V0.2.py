@@ -75,10 +75,10 @@ sh_path = nx.shortest_path(G, source=start_of_path, target=end_of_path)
 print(f"Shortest path between {start_of_path} and {end_of_path}:", sh_path)
 print("\n [  %2f seconds  ]\n" % (time.time() - start_time))
 
-# # If your Graph has more than one component, this will return False:
+# # If the Graph has more than one component, this will return False:
 # print(nx.is_connected(G))
 
-# # Next, use nx.connected_components to get the list of components,
+# # use nx.connected_components to get the list of components,
 # # then use the max() command to find the largest one:
 # components = nx.connected_components(G)
 # largest_component = max(components, key=len)
@@ -91,7 +91,7 @@ print("\n [  %2f seconds  ]\n" % (time.time() - start_time))
 # diameter = nx.diameter(subgraph)
 # print("Network diameter of largest component:", diameter)
 
-# for path in nx.all_simple_paths(G, source="Margaret Fell", target="George Whitehead"):
-#     print(path)
+# for path in nx.all_simple_paths(G, source=start_of_path, target=end_of_path):
+#     print(len(path))
 
 
