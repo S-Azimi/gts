@@ -26,7 +26,19 @@ for path in pathNames:
     for i in range(path[1]):
         edges.append((path[0]+str(i),path[0]+str(i+1)))
             
-intersection_nodes=[('A100','B50'),('A300','B500'),('',''),('',''),('',''),('',''),('',''),('',''),('',''),('',''),('',''),('',''),('',''),('',''),('',''),('',''),]
+intersection_nodes=[
+    ('A100','B50'),('A300','B500'),('A400','B700'),
+    ('B50','C100'),('B600','C500'),('B700','D600'),
+    ('C200','D400'),('C500','D700'),
+    ('D50','E100'),('D200','E300'),
+    ('E100','F250'),('E400','F300'),('E600','G700'),
+    ('F250','G50'),('F400','G550'),
+    ('G400','H500'),]
+
+print(len(edges))
+edges.extend(intersection_nodes)
+
+print(len(edges))
 
 print(nodeNames[-5:])
 print(edges[-5:])
@@ -38,24 +50,6 @@ G.add_edges_from(edges)
 print(G)
 
 # nx.draw_networkx(G, width=1, with_labels=False)
-
-
-#--------------------------------------------------------------------
-
-# in a bipartite graph, there is no edges between the group members
-# from networkx.algorithms import bipartite
-# B= nx.Graph()
-# B.add_nodes_from(['A','B','C','D','E'], bipartite=0)
-# B.add_nodes_from([1,2,3,4], bipartite=1)
-# B.add_edges_from([('A',1),('B',1),('C',1),('C',3),('D',4),('E',1),('A',2),('E',2)])
-# print(bipartite.is_bipartite(B))
-# edges = B.edges()
-# nx.draw_networkx(B, pos=nx.drawing.layout.bipartite_layout(B, ['A','B','C','D','E']), width=2)
-# nx.draw_networkx(B, width=4)
-
-# print(edges)
-# plt.clf()  # clear plot
-# -----------------------------------------------------------------------
 
 # import csv
 # from operator import itemgetter
@@ -77,9 +71,7 @@ print(G)
 # G.add_edges_from(edges)
 
 
-# nx.draw_networkx(G, width= 3, with_labels=True)
-
-# fell_whitehead_path = nx.shortest_path(G, source="Margaret Fell", target="George Whitehead")
+A0_C800_path = nx.shortest_path(G, source="A0", target="C800")
 
 # print("Shortest path between Fell and Whitehead:", fell_whitehead_path)
 
