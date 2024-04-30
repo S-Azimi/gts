@@ -1,15 +1,13 @@
-# this is graph generation test by Sasan Azimi using "NetworkX"
-# in version 0.2 we want to generate a big graph as simulation of GAS network 
-# this graph consist of several main paths with several points
+# This is graph generation test by Sasan Azimi using "NetworkX"
+# In version 0.2 I want to generate a big graph as simulation of Gas Dispatching  network
+# This graph consist of several long main paths and there are a few intersection among them
 
 import networkx as nx  # pip install networkx
-
 import matplotlib.pyplot as plt
+import time
+
 
 plt.rcParams["figure.figsize"] = [120, 120]
-
-
-
 edges=[]
 nodeNames=[]
 pathNames= [('A',800), ('B',800),('C',800),('D',800),('E',800),('F',800),('G',800),('H',800)]
@@ -43,7 +41,7 @@ print(len(edges))
 print(nodeNames[-5:])
 print(edges[-5:])
 
-
+start_time = time.time()
 G = nx.Graph()
 G.add_nodes_from(nodeNames)
 G.add_edges_from(edges)
@@ -70,10 +68,11 @@ print(G)
 # G.add_nodes_from(node_names)
 # G.add_edges_from(edges)
 
+start_of_path = 'A0'
+end_of_path = 'C800'
+sh_path = nx.shortest_path(G, source=start_of_path, target=end_of_path)
 
-A0_C800_path = nx.shortest_path(G, source="A0", target="C800")
-
-# print("Shortest path between Fell and Whitehead:", fell_whitehead_path)
+print(f"Shortest path between {start_of_path} and {end_of_path}:", sh_path)
 
 # # If your Graph has more than one component, this will return False:
 # print(nx.is_connected(G))
