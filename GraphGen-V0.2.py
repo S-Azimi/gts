@@ -73,6 +73,7 @@ end_of_path = 'C800'
 sh_path = nx.shortest_path(G, source=start_of_path, target=end_of_path)
 
 print(f"Shortest path between {start_of_path} and {end_of_path}:", sh_path)
+print("\n [  %2f seconds  ]\n" % (time.time() - start_time))
 
 # # If your Graph has more than one component, this will return False:
 # print(nx.is_connected(G))
@@ -92,3 +93,5 @@ print(f"Shortest path between {start_of_path} and {end_of_path}:", sh_path)
 
 # for path in nx.all_simple_paths(G, source="Margaret Fell", target="George Whitehead"):
 #     print(path)
+
+
