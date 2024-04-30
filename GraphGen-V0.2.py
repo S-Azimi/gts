@@ -6,7 +6,7 @@ import networkx as nx  # pip install networkx
 
 import matplotlib.pyplot as plt
 
-plt.rcParams["figure.figsize"] = [12, 12]
+plt.rcParams["figure.figsize"] = [120, 120]
 
 
 
@@ -26,10 +26,10 @@ for path in pathNames:
     for i in range(path[1]):
         edges.append((path[0]+str(i),path[0]+str(i+1)))
             
+intersection_nodes=[('A100','B50'),('A300','B500'),('',''),('',''),('',''),('',''),('',''),('',''),('',''),('',''),('',''),('',''),('',''),('',''),('',''),('',''),]
 
-
-print(nodeNames)
-print(edges)
+print(nodeNames[-5:])
+print(edges[-5:])
 
 
 G = nx.Graph()
@@ -37,7 +37,7 @@ G.add_nodes_from(nodeNames)
 G.add_edges_from(edges)
 print(G)
 
-nx.draw_networkx(G, width=1, with_labels=False)
+# nx.draw_networkx(G, width=1, with_labels=False)
 
 
 #--------------------------------------------------------------------
