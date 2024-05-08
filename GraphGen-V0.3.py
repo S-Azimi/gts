@@ -23,17 +23,15 @@ pathNames= [('A',8), ('B',8),('C',8),('D',8),('E',8),('F',8),('G',8),('H',8)]
 
 
 def gen_rand_properties(name):
-    # my_dictionary = {"one": 1, "two": 2}
-    # my_dictionary["three"] = 3
-    # properties={"name": name, "p1":'test1', "p2": 'test2', "p3": 12.1, "p4":14.23}
+
     properties={"name": name}
     # add random string properties
     for i in range(number_of_str_properties):
         properties['StrProp_'+ str(i)]= ''.join(random.choices(string.ascii_lowercase, k=len_string_properties))
     
     # add random float properties
-    for i in range(number_of_str_properties):
-        properties['StrProp_'+ str(i)]= ''.join(random.choices(string.ascii_lowercase, k=len_string_properties))
+    for i in range(number_of_float_properties):
+        properties['FloatProp_'+ str(i)]= random.random()
     
     
     return properties
@@ -41,7 +39,7 @@ def gen_rand_properties(name):
 for path in pathNames:
     for i in range(path[1]+1):
         rand_properties= gen_rand_properties(path[0]+str(i))
-        print(rand_properties)
+        # print(rand_properties)
         nodeNames.append(rand_properties)
 
 # generate long paths
@@ -63,9 +61,8 @@ for path in pathNames:
 print("len Nodes:  ", len(nodeNames))
 print("len edges:  ", len(edges))
 
-print("\nNodes:  ",nodeNames[-5:])
-print("\nEdges:",edges[-5:])
-
+# print("\nNodes:  ",nodeNames[-5:])
+# print("\nEdges:",edges[-5:])
 
 
 start_time = time.time()
@@ -74,18 +71,19 @@ G = nx.Graph()
 
 
 for node_info in nodeNames:
-    G.add_node(node_info["name"], **node_info)
+    G.add_node(node_info["name"], **node_info)   # use ** to unpack the dictionary
 
 
 G.add_edges_from(edges)
 print("\n\033[93m", G, "\n\033[0m")
 
-# print(G.nodes(data=True)[0]) 
 
 # get one node's info
 print(G.nodes['A0']) 
 
 
+
+# Saving the graph
 print("\n [  %2f seconds  ]\n" % (time.time() - start_time))
 
 
