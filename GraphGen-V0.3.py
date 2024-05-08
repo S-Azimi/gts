@@ -68,5 +68,11 @@ G.add_edges_from(edges)
 print("\n",G)
 
 # print(G.nodes(data=True)[0]) 
-print(G.nodes(data=True)) 
+
+# get one node's info
+print(G.nodes['A0']) 
+
+
+print("\n [  %2f seconds  ]\n" % (time.time() - start_time))
+
 
