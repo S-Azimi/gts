@@ -84,7 +84,6 @@ print(G.nodes['A0'])
 
 
 # Saving the graph
-nx.write_edgelist(G, "graph.edgelist")
 nx.write_gml(G, "graph.gml")
 
 print("\n [  %2f seconds  ]\n" % (time.time() - start_time))
