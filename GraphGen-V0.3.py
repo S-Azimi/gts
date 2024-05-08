@@ -17,9 +17,9 @@ len_string_properties=48
 plt.rcParams["figure.figsize"] = [120, 120]
 edges=[]
 nodeNames=[]
-# pathNames= [('A',800), ('B',800),('C',800),('D',800),('E',800),('F',800),('G',800),('H',800)]
+pathNames= [('A',800), ('B',800),('C',800),('D',800),('E',800),('F',800),('G',800),('H',800)]
 # pathNames= [('A',80), ('B',80),('C',80),('D',80),('E',80),('F',80),('G',80),('H',80)]
-pathNames= [('A',8), ('B',8),('C',8),('D',8),('E',8),('F',8),('G',8),('H',8)]
+# pathNames= [('A',8), ('B',8),('C',8),('D',8),('E',8),('F',8),('G',8),('H',8)]
 
 
 def gen_rand_properties(name):
@@ -84,6 +84,18 @@ print(G.nodes['A0'])
 
 
 # Saving the graph
+nx.write_edgelist(G, "graph.edgelist")
+nx.write_gml(G, "graph.gml")
+
+print("\n [  %2f seconds  ]\n" % (time.time() - start_time))
+
+# load a graph from gml file
+print("\n", "load a graph from gml file...")
+H = nx.read_gml('graph.gml')
+print("\n\033[93m", H, "\n\033[0m")
+
+print(H.nodes['A0']) 
+
 print("\n [  %2f seconds  ]\n" % (time.time() - start_time))
 
 
