@@ -50,8 +50,8 @@ for path in pathNames:
 print("len Nodes:  ", len(nodeNames))
 print("len edges:  ", len(edges))
 
-print("\nNodes",nodeNames[-5:])
-print("\nEdges\n",edges[-5:])
+print("\nNodes:  ",nodeNames[-5:])
+print("\nEdges:",edges[-5:])
 
 
 
@@ -65,7 +65,7 @@ for node_info in nodeNames:
 
 
 G.add_edges_from(edges)
-print("\n",G)
+print("\n\033[93m", G, "\n\033[0m")
 
 # print(G.nodes(data=True)[0]) 
 
