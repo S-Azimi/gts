@@ -24,7 +24,7 @@ pathNames= [('A',1992), ('B',1200),('C',1200),('D',1200),('E',1200),('F',1200),(
 
 def gen_rand_properties(name):
 
-    properties={"name": name}
+    properties={"label": name}  # networkx will assign the label key automatically so I used the fist key name as "label" to avoid redundant key
     # add random string properties
     for i in range(number_of_str_properties):
         properties['StrProp_'+ str(i)]= ''.join(random.choices(string.ascii_lowercase, k=len_string_properties))
@@ -71,7 +71,7 @@ G = nx.Graph()
 
 
 for node_info in nodeNames:
-    G.add_node(node_info["name"], **node_info)   # use ** to unpack the dictionary
+    G.add_node(node_info["label"], **node_info)   # use ** to unpack the dictionary
     
 
 G.add_edges_from(edges)
