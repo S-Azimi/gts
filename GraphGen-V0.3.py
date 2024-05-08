@@ -5,12 +5,14 @@
 
 import networkx as nx  # pip install networkx
 import matplotlib.pyplot as plt
+import random
+import string
 import time
 
 number_of_str_properties=20
 number_of_float_properties=10
 
-let_string_properties=48
+len_string_properties=48
 
 plt.rcParams["figure.figsize"] = [120, 120]
 edges=[]
@@ -21,8 +23,19 @@ pathNames= [('A',8), ('B',8),('C',8),('D',8),('E',8),('F',8),('G',8),('H',8)]
 
 
 def gen_rand_properties(name):
-    properties={"name": name, "p1":'test1', "p2": 'test2', "p3": 12.1, "p4":14.23}
-
+    # my_dictionary = {"one": 1, "two": 2}
+    # my_dictionary["three"] = 3
+    # properties={"name": name, "p1":'test1', "p2": 'test2', "p3": 12.1, "p4":14.23}
+    properties={"name": name}
+    # add random string properties
+    for i in range(number_of_str_properties):
+        properties['StrProp_'+ str(i)]= ''.join(random.choices(string.ascii_lowercase, k=len_string_properties))
+    
+    # add random float properties
+    for i in range(number_of_str_properties):
+        properties['StrProp_'+ str(i)]= ''.join(random.choices(string.ascii_lowercase, k=len_string_properties))
+    
+    
     return properties
 
 for path in pathNames:
