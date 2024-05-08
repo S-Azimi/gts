@@ -7,18 +7,26 @@ import networkx as nx  # pip install networkx
 import matplotlib.pyplot as plt
 import time
 
+number_of_str_properties=20
+number_of_float_properties=10
+
+let_string_properties=48
 
 plt.rcParams["figure.figsize"] = [120, 120]
 edges=[]
 nodeNames=[]
 pathNames= [('A',800), ('B',800),('C',800),('D',800),('E',800),('F',800),('G',800),('H',800)]
 # pathNames= [('A',80), ('B',80),('C',80),('D',80),('E',80),('F',80),('G',80),('H',80)]
-# pathNames= [('A',80), ('B',8),('C',8),('D',8),('E',8),('F',8),('G',8),('H',8)]
+
+
+def gen_rand_properties():
+    properties=['test1', 'test2', 12.1, 14.23]
+    return properties
 
 for path in pathNames:
     for i in range(path[1]+1):
-        nodeNames.append(path[0]+str(i))
-
+        rand_properties= gen_rand_properties()
+        nodeNames.append([path[0]+str(i)] +rand_properties)
 
 # generate long paths
 for path in pathNames:
@@ -41,6 +49,8 @@ print(len(edges))
 
 print(nodeNames[-5:])
 print(edges[-5:])
+
+
 
 start_time = time.time()
 G = nx.Graph()
