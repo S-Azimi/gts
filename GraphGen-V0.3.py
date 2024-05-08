@@ -20,14 +20,16 @@ nodeNames=[]
 pathNames= [('A',8), ('B',8),('C',8),('D',8),('E',8),('F',8),('G',8),('H',8)]
 
 
-def gen_rand_properties():
-    properties="p1='test1', p2='test2', p3=12.1, p4=14.23"
+def gen_rand_properties(name):
+    properties={"name": name, "p1":'test1', "p2": 'test2', "p3": 12.1, "p4":14.23}
+
     return properties
 
 for path in pathNames:
     for i in range(path[1]+1):
-        rand_properties= gen_rand_properties()
-        nodeNames.append(path[0]+str(i) +", " +rand_properties)
+        rand_properties= gen_rand_properties(path[0]+str(i))
+        print(rand_properties)
+        nodeNames.append(rand_properties)
 
 # generate long paths
 for path in pathNames:
@@ -55,7 +57,13 @@ print("\nEdges\n",edges[-5:])
 
 start_time = time.time()
 G = nx.Graph()
-G.add_nodes_from(nodeNames)
+# G.add_nodes_from(nodeNames)
+
+
+for node_info in nodeNames:
+    G.add_node(node_info["name"], **node_info)
+
+
 G.add_edges_from(edges)
 print("\n",G)
 
