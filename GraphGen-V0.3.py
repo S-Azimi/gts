@@ -20,13 +20,13 @@ pathNames= [('A',800), ('B',800),('C',800),('D',800),('E',800),('F',800),('G',80
 
 
 def gen_rand_properties():
-    properties=['test1', 'test2', 12.1, 14.23]
+    properties="p1='test1', p2='test2', p3=12.1, p4=14.23"
     return properties
 
 for path in pathNames:
     for i in range(path[1]+1):
         rand_properties= gen_rand_properties()
-        nodeNames.append([path[0]+str(i)] +rand_properties)
+        nodeNames.append(path[0]+str(i) +", " +rand_properties)
 
 # generate long paths
 for path in pathNames:
@@ -42,13 +42,12 @@ intersection_nodes=[
     ('F250','G50'),('F400','G550'),
     ('G400','H500'),]
 
-print(len(edges))
 edges.extend(intersection_nodes)
 
-print(len(edges))
+print("len edges:  ", len(edges))
 
-print(nodeNames[-5:])
-print(edges[-5:])
+print("\nNodes",nodeNames[-5:])
+print("\nEdges",edges[-5:])
 
 
 
