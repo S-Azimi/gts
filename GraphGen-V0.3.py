@@ -72,7 +72,7 @@ G = nx.Graph()
 
 for node_info in nodeNames:
     G.add_node(node_info["name"], **node_info)   # use ** to unpack the dictionary
-
+    
 
 G.add_edges_from(edges)
 print("\n\033[93m", G, "\n\033[0m")
