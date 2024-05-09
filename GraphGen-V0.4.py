@@ -39,9 +39,9 @@ def gen_rand_properties(name):
 
 for path in pathNames:
     for i in range(path[1]+1):
-        rand_properties= gen_rand_properties(path[0]+str(i))
-        # print(rand_properties)
-        nodeNames.append(rand_properties)
+        nodeNames.append(path[0]+str(i))
+
+
 
 # generate long paths
 for path in pathNames:
@@ -68,19 +68,14 @@ print("len edges:  ", len(edges))
 
 start_time = time.time()
 G = nx.Graph()
-# G.add_nodes_from(nodeNames)
-
-
-for node_info in nodeNames:
-    G.add_node(node_info["label"], **node_info)   # use ** to unpack the dictionary
-    
-
+G.add_nodes_from(nodeNames)
 G.add_edges_from(edges)
+
 print("\n\033[93m", G, "\n\033[0m")
 
 
 # get one node's info
-print(G.nodes['A0']) 
+print("Node A0:",G.nodes["A0"]) 
 
 
 
@@ -96,7 +91,7 @@ print("\n", "load a graph from gml file...")
 H = nx.read_gml('graph.gml')
 print("\n\033[93m", H, "\n\033[0m")
 
-print(H.nodes['A0']) 
+print("Node A0:", H.nodes['A0']) 
 
 print("\n [  %2f seconds  ]\n" % (time.time() - start_time))
 
