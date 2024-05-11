@@ -54,9 +54,10 @@
                     'background-image': "{{ url_for('static', filename = 'pics/pipe.svg') }}",
                     'background-image-crossorigin': 'null',
                     'background-fit': 'cover',
-                    'border-width': 3,
+                    'border-width': 1,
                     'padding-left': 10,
-                    'border-opacity': 0.1
+                    'border-opacity': 0.5,
+                    'shape': 'rectangle'
                 }
             },
 
@@ -85,6 +86,22 @@
     cy.add({
         group: 'edges',
         data: { id: "sas", source: "a", target: "c" }
+    });
+
+    var node = cy.getElementById('a');
+
+    node.style({
+            "font-size": 20 // or any other value you want
+        });
+
+    console.log(node.elements);
+
+    var nodes = cy.nodes();
+
+    // Iterate over the nodes
+    nodes.forEach(function (node) {
+        // Print the node's ID
+        console.log(node.id());
     });
 </script>
 
