@@ -27,6 +27,9 @@
     <div id="cy"></div>
 </body>
 <script>
+
+
+
     let cy;
 
     cy = cytoscape({
@@ -90,11 +93,52 @@
 
     var node = cy.getElementById('a');
 
-    node.style({
-            "font-size": 20 // or any other value you want
-        });
+    var svgString = `<svg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'>
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #90386c;
+      }
 
-    console.log(node.elements);
+      .cls-2 {
+        fill: #ffadee;
+      }
+    </style>
+  </defs>
+  <rect class='cls-1' x='2.4' y='7.5' width='15.2' height='1'/>
+  <rect class='cls-1' x='2.4' y='11.5' width='15.2' height='1'/>
+  <path class='cls-2' d='m2.3,13.5h-1.2c-.58,0-1.1-.52-1.1-1.1v-4.8c0-.58.52-1.1,1.1-1.1h1.2c.58,0,1.1.52,1.1,1.1v4.8c0,.58-.52,1.1-1.1,1.1Zm0-6h-1.2s-.09.07-.1.1v4.8s.07.09.11.1h1.19s.1-.07.1-.11v-4.79s-.07-.09-.1-.1Z'/>
+  <path class='cls-2' d='m18.9,13.5h-1.2c-.58,0-1.1-.52-1.1-1.1v-4.8c0-.58.52-1.1,1.1-1.1h1.2c.58,0,1.1.52,1.1,1.1v4.8c0,.58-.52,1.1-1.1,1.1Zm0-6h-1.2s-.09.07-.1.11v4.79s.07.09.11.1h1.19s.1-.07.1-.11v-4.79s-.07-.09-.1-.1Z'/>
+</svg>`
+
+//    var svgString = "<svg id='Layer_1' data-name='Layer 1' viewBox='0 0 20 20'><rect  x='2.4' y='7.5' width='15.2' height='1'/> <rect x='2.4' y='11.5' width='15.2' height='1'/>  <path d='m2.3,13.5h-1.2c-.58,0-1.1-.52-1.1-1.1v-4.8c0-.58.52-1.1,1.1-1.1h1.2c.58,0,1.1.52,1.1,1.1v4.8c0,.58-.52,1.1-1.1,1.1Zm0-6h-1.2s-.09.07-.1.1v4.8s.07.09.11.1h1.19s.1-.07.1-.11v-4.79s-.07-.09-.1-.1Z'/>  <path d='m18.9,13.5h-1.2c-.58,0-1.1-.52-1.1-1.1v-4.8c0-.58.52-1.1,1.1-1.1h1.2c.58,0,1.1.52,1.1,1.1v4.8c0,.58-.52,1.1-1.1,1.1Zm0-6h-1.2s-.09.07-.1.11v4.79s.07.09.11.1h1.19s.1-.07.1-.11v-4.79s-.07-.09-.1-.1Z'/></svg>"
+
+s= "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCI+CiAgPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0icmVkIi8+Cjwvc3ZnPg=="
+var svgBase64 = btoa(svgString);
+
+var dataUrl = 'data:image/svg+xml;base64,' + svgBase64;
+
+
+    node.style({
+        "font-size": 20,
+        'width': '100px',
+        'background-image': dataUrl
+    });
+
+
+
+
+
+    cy.on('drag', 'node', function (event) {
+        var node = event.target;
+        // Do something with the dragged node
+        console.log('Dragging node:', node.id());
+    });
+
+
+
+
+    console.log(node.layout);
 
     var nodes = cy.nodes();
 
