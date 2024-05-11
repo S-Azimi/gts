@@ -25,6 +25,7 @@
     <h1>hi</h1>
     <img src="https://bashgardi.ir/media/pipe.png">
     <div id="cy"></div>
+    <button onclick="changeLine()">Change line</button>
 </body>
 <script>
 
@@ -111,7 +112,7 @@
   <path class='cls-2' d='m18.9,13.5h-1.2c-.58,0-1.1-.52-1.1-1.1v-4.8c0-.58.52-1.1,1.1-1.1h1.2c.58,0,1.1.52,1.1,1.1v4.8c0,.58-.52,1.1-1.1,1.1Zm0-6h-1.2s-.09.07-.1.11v4.79s.07.09.11.1h1.19s.1-.07.1-.11v-4.79s-.07-.09-.1-.1Z'/>
 </svg>`
 
-var svgString=`<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20">
+    var svgString = `<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 20">
   <defs>
     <style>
       .cls-1 {
@@ -139,19 +140,34 @@ var svgString=`<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/20
   <path class="cls-2" d="M18.9,13h-1.2c-.3,0-.6-.3-.6-.6v-4.8c0-.3.3-.6.6-.6h1.2c.3,0,.6.3.6.6v4.8c0,.3-.3.6-.6.6Z"/>
 </svg>
 `
-//    var svgString = "<svg id='Layer_1' data-name='Layer 1' viewBox='0 0 20 20'><rect  x='2.4' y='7.5' width='15.2' height='1'/> <rect x='2.4' y='11.5' width='15.2' height='1'/>  <path d='m2.3,13.5h-1.2c-.58,0-1.1-.52-1.1-1.1v-4.8c0-.58.52-1.1,1.1-1.1h1.2c.58,0,1.1.52,1.1,1.1v4.8c0,.58-.52,1.1-1.1,1.1Zm0-6h-1.2s-.09.07-.1.1v4.8s.07.09.11.1h1.19s.1-.07.1-.11v-4.79s-.07-.09-.1-.1Z'/>  <path d='m18.9,13.5h-1.2c-.58,0-1.1-.52-1.1-1.1v-4.8c0-.58.52-1.1,1.1-1.1h1.2c.58,0,1.1.52,1.1,1.1v4.8c0,.58-.52,1.1-1.1,1.1Zm0-6h-1.2s-.09.07-.1.11v4.79s.07.09.11.1h1.19s.1-.07.1-.11v-4.79s-.07-.09-.1-.1Z'/></svg>"
+    var svgString2 = `<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 60 20">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+        stroke: #00386c;
+      }
 
-s= "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCI+CiAgPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0icmVkIi8+Cjwvc3ZnPg=="
-var svgBase64 = btoa(svgString);
+      .cls-1, .cls-2 {
+        stroke-miterlimit: 10;
+      }
 
-var dataUrl = 'data:image/svg+xml;base64,' + svgBase64;
-
-
-    node.style({
-        "font-size": 20,
-        'width': '100px',
-        'background-image': dataUrl
-    });
+      .cls-2 {
+        fill: none;
+        stroke: #00adee;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="2.9" y1="10" x2="57.1" y2="10" gradientUnits="userSpaceOnUse">
+      <stop offset=".23" stop-color="#bf2025"/>
+      <stop offset=".66" stop-color="#eaff15"/>
+      <stop offset="1" stop-color="#22f"/>
+    </linearGradient>
+  </defs>
+  <rect class="cls-1" x="2.9" y="8" width="54.2" height="4"/>
+  <path class="cls-2" d="M2.3,13h-1.2c-.3,0-.6-.3-.6-.6v-4.8c0-.3.3-.6.6-.6h1.2c.3,0,.6.3.6.6v4.8c0,.3-.3.6-.6.6Z"/>
+  <path class="cls-2" d="M58.9,13h-1.2c-.3,0-.6-.3-.6-.6v-4.8c0-.3.3-.6.6-.6h1.2c.3,0,.6.3.6.6v4.8c0,.3-.3.6-.6.6Z"/>
+</svg>
+`
 
 
 
@@ -175,6 +191,57 @@ var dataUrl = 'data:image/svg+xml;base64,' + svgBase64;
         // Print the node's ID
         console.log(node.id());
     });
+
+
+
+    function changeLine() {
+        var svgString2 = `<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 60 20">
+            <defs>
+                <style>
+                .cls-1 {
+                    fill: url(#linear-gradient);
+                    stroke: #00386c;
+                }
+
+                .cls-1, .cls-2 {
+                    stroke-miterlimit: 10;
+                }
+
+                .cls-2 {
+                    fill: none;
+                    stroke: #00adee;
+                }
+                </style>
+                <linearGradient id="linear-gradient" x1="2.9" y1="10" x2="57.1" y2="10" gradientUnits="userSpaceOnUse">
+                <stop offset=".23" stop-color="#bf2025"/>
+                <stop offset=".66" stop-color="#eaff15"/>
+                <stop offset="1" stop-color="#22f"/>
+                </linearGradient>
+            </defs>
+            <rect class="cls-1" x="2.9" y="8" width="54.2" height="4"/>
+            <path class="cls-2" d="M2.3,13h-1.2c-.3,0-.6-.3-.6-.6v-4.8c0-.3.3-.6.6-.6h1.2c.3,0,.6.3.6.6v4.8c0,.3-.3.6-.6.6Z"/>
+            <path class="cls-2" d="M58.9,13h-1.2c-.3,0-.6-.3-.6-.6v-4.8c0-.3.3-.6.6-.6h1.2c.3,0,.6.3.6.6v4.8c0,.3-.3.6-.6.6Z"/>
+            </svg>
+            `
+
+        var svgBase64 = btoa(svgString2);
+
+        var dataUrl = 'data:image/svg+xml;base64,' + svgBase64;
+
+
+        node.style({
+            "font-size": 20,
+            'width': '140px',
+            'height': '10px',
+            'background-image': dataUrl
+        });
+
+
+
+
+
+
+    }
 </script>
 
 </html>
