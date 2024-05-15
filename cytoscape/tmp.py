@@ -11,6 +11,9 @@ class node:
     def y():
             print("instance method")
 
+    def x():
+         print(f"this is the node  {self.p} of graph")
+
 a=node(1,2) # the class attribute is not set so the class value is used
 b=node(11,12)
 # a.n=1000
@@ -22,4 +25,4 @@ print("a",a.n, "b",b.n)  # ->a 100 b 2000
 node.n=53
 
 print(a.n)  # -> 53
-a.z()
+a.x()
