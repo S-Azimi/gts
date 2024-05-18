@@ -8,7 +8,7 @@ class node:
         self.q=q # define an Instance attribute (required to set while creating an instance)
         print (p*q)
         def z():
-            print("instance method")
+            print("*********************")
     def y(self, c):
             print("instance method", c)
 
@@ -25,7 +25,12 @@ print("a",a.n, "b",b.n)  # ->a 100 b 2000
 
 node.n=53
 
-print(a.n)  # -> 53
-print(a.label)
-a.x()
-a.y(34)
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+  def __str__(self):
+    return f"{self.name}({self.age})"
+p1 = Person("John", 36)
+
+print(p1)
