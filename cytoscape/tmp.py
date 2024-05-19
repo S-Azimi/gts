@@ -34,3 +34,10 @@ class Person:
 p1 = Person("John", 36)
 
 print(p1)
+
+class subnode(node):
+    t=0
+
+c=subnode(5,2)
+print(c.t)
+
