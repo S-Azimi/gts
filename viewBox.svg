@@ -1,6 +1,22 @@
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 20 20" style="background-color: gray" xml:space="preserve">
-			<line id="ll" x1="0" y1="0" x2="20" y2="20" stroke="blue" stroke-width="3" onclick="hh()"/>
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 60 60" overflow="visible"   style="background:gray">
+	<!-- width="40" height="40"		 -->
+	<!-- npm install cytoscape-edge-connections -->
+
+
+
+	<line id="ll" x1="0" y1="0" x2="20" y2="20" stroke="blue" stroke-width="3" onclick="hh()">
+				<!-- <animate  accumulate="none" additive="replace" attributeName="y2" calcMode="linear" dur="2s" fill="remove" repeatCount="indefinite" restart="always" values="20; 40; 20;">
+				</animate> -->
+			
+				<animateTransform 
+				attributeName="transform" 
+				attributeType="XML" 
+				type="rotate" 
+				from="0 20 20" 
+				to="360 20 20" 
+				dur="2s" 
+				repeatCount="indefinite" />
+			</line>
 
 		<script>
 			function hh(){
