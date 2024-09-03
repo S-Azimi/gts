@@ -46,16 +46,16 @@
 }
 
 #p1 {
-    animation: morph 10s infinite ;
+    animation: morph 10s linear ;
 }
 
 #small_flame {
-    animation: morph2 10s infinite ;
+    animation: morph2 10s linear ;
 }
 
 
 #base {
-    animation: morph_base 10s infinite ease-out ;
+    animation: morph_base 10s linear ;
 }
 	   
 	  
