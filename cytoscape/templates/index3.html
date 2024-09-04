@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>work area2</title>
+
+    <script src=".{{ url_for('static', filename = 'js/cytoescape.min.js') }}"></script>
+    <script src=".{{ url_for('static', filename = 'js/cytoscape-edgehandles.js') }}"></script>
+    <style>
+        .github {
+            background-color: azure !important;
+        }
+
+        #cy {
+            width: 1200px;
+            height: 800px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Test playground...</h2>
+    <div id="cy"></div>
+    <button onclick="changeLine()">Change line</button>
+</body>
+<script>
+    var cy = cytoscape({
+        container: document.getElementById('cy'),
+      
+        elements: [
+          { data: { id: 'a' }, position: { x: 100, y: 100 } },
+          { data: { id: 'b' }, position: { x: 300, y: 300 } },
+          { data: { id: 'ab', source: 'a', target: 'b' } }
+        ],
+      
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': '#666',
+              'label': 'data(id)',
+              'background-opacity': 0,
+              'background-image': "{{ url_for('static', filename = 'pics/pipe.svg') }}",
+              'background-image-crossorigin': 'null',
+              'background-fit': 'cover',
+              'shape': 'rectangle',
+              'padding-left': 10,
+
+
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': 3,
+              'line-color': '#ccc',
+              'target-arrow-color': '#ccc',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier'
+              
+            }
+          }
+        ],
+      
+        layout: {
+          name: 'grid',
+          rows: 1
+        }
+      });
+      
+      // Initialize edgehandles
+      var edgehandles = cy.edgehandles({
+        handleSize: 20,
+        handlePosition: 'middle top', // Set the handle position
+        handleColor: '#f00',
+        hoverDelay: 150,
+        noEdgeEvents: false,
+        complete: function(source, target, addedEntities) {
+          console.log('Edge added from ' + source.id() + ' to ' + target.id());
+        }
+      });
+      
+      // Enable edgehandles
+      cy.on('tap', 'node', function(evt){
+        edgehandles.start(evt.target);
+      });
+
+
+
+ 
+</script>
+
+</html>
