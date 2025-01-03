@@ -16,8 +16,9 @@
 window.onload = function() {
   var svgDoc =document.getElementById('scope').contentDocument;
   var arr = svgDoc.getElementById('arrow'); // Access an element by ID
-  var min = svgDoc.getElementById('min_box');
-  console.log(min.value);
+  var min = svgDoc.getElementById('min_box').textContent;
+  console.log(min);
+  
   // arr.style.transform =`rotate(${degrees}deg)`; ;
 };
 

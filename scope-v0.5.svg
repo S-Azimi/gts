@@ -9,8 +9,6 @@
       .cls-3 {
         fill: #00adee;
         transform-origin: 25px 13px;
-        transform: rotate(95deg);
-
       }
 
 	  
