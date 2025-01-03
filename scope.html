@@ -1,0 +1,92 @@
+<html>
+<body>
+<div>
+  <label for="spin-button">Value:</label>
+  <input type="number" id="spin-button" value="0" min="0" max="100">
+  <button onclick="increment()">+</button>
+  <button onclick="decrement()">-</button>
+  
+</div>
+
+<div>
+
+
+<object id="arrowobj2" type="image/svg+xml" data="scope-v0.5.svg"></object>
+        <svg id="arrowobj" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+            <polygon id="arrow" points="50,10 90,90 10,90" style="fill:red;"/>
+        </svg>
+
+        <button id="btn" onclick="changeSVG()">Change SVG</button>
+
+
+</div>
+
+<script>
+		 window.onload = function() {
+            console.log("All assets are loaded");
+			var svgDoc2 =document.getElementById('arrowobj2').contentDocument;
+						console.log("---%%$$$---" + svgDoc2);
+
+         
+        };
+
+//        document.getElementById('arrowobj').addEventListener('load', function() {
+	//		var svgDoc = document.getElementById('arrowobj'); // Get the SVG document
+		//	console.log("---inline------------" + svgDoc);
+			//var arr = svgDoc.getElementById('arrow'); // Access an element by ID
+//			arr.style.fill = "green"; // Change color
+
+            //changeSVG(); // Call changeSVG after SVG is loaded
+  //      });
+
+    //    document.getElementById('arrowobj2').addEventListener('load', function() {
+		//	            var svgDoc2 = this.contentDocument; // Get the contentDocument of the object
+			
+//			console.log("---%%%%%%------------" + svgDoc2);
+//			            if (svgDoc2) {
+  //              var arr = svgDoc2.getElementById('arrow'); // Access an element by ID
+    //            if (arr) {
+      //              arr.style.fill = "blue"; // Change color if found
+        //        } else {
+          //          console.error("Element with ID 'arrow' not found in external SVG.");
+            //    }
+       //     } else {
+         //       console.error("SVG document is not loaded yet.");
+           // }
+			//var arr = svgDoc2.getElementById('arrow'); // Access an element by ID
+			//arr.style.fill = "green"; // Change color
+
+            //changeSVG(); // Call changeSVG after SVG is loaded
+       // });
+	
+
+
+	function changeSVG() {
+	  var svgDoc = document.getElementById('arrowobj').contentDocument; // Get the SVG document
+	  console.log("---------------" + svgDoc);
+	  var arrow = svgDoc.getElementById('arrow'); // Access an element by ID
+	  arrow.style.fill = "green"; // Change color
+	}
+
+
+
+function increment() {
+  const input = document.getElementById('spin-button');
+  let value = parseInt(input.value);
+  if (value < parseInt(input.max)) {
+    input.value = value + 1;
+  }
+}
+
+function decrement() {
+  const input = document.getElementById('spin-button');
+  let value = parseInt(input.value);
+  if (value > parseInt(input.min)) {
+    input.value = value - 1;
+  }
+}
+
+</script>
+
+</body>
+</html>
