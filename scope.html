@@ -10,26 +10,22 @@
 
 <div>
   <object id="scope" type="image/svg+xml" data="scope-v0.5.svg"></object>
-  <button id="btn" onclick="changeSVG()">Change SVG</button>
 </div>
 
 <script>
-		 window.onload = function() {
-      var input = document.getElementById('spin-button');
-      var degrees =input.value;      
-      // degrees =44;
-			var svgDoc2 =document.getElementById('scope').contentDocument;
-            var arr = svgDoc2.getElementById('arrow'); // Access an element by ID
-         			arr.style.fill = "green"; // Change color
-              arr.style.transform =`rotate(${degrees}deg)`; ;
-        };
+window.onload = function() {
+  var svgDoc =document.getElementById('scope').contentDocument;
+  var arr = svgDoc.getElementById('arrow'); // Access an element by ID
+  var min = svgDoc.getElementById('min_box');
+  console.log(min.value);
+  // arr.style.transform =`rotate(${degrees}deg)`; ;
+};
 
 
-	function changeSVG() {
-	  var svgDoc = document.getElementById('arrowobj').contentDocument; // Get the SVG document
-	  console.log("---------------" + svgDoc);
-	  var arrow = svgDoc.getElementById('arrow'); // Access an element by ID
-	  arrow.style.fill = "green"; // Change color
+	function changeSVG(degrees) {
+    var svgDoc2 =document.getElementById('scope').contentDocument;
+    var arr = svgDoc2.getElementById('arrow'); // Access an element by ID
+    arr.style.transform =`rotate(${degrees}deg)`; ;
 	}
 
 
@@ -38,16 +34,19 @@ function increment() {
   const input = document.getElementById('spin-button');
   let value = parseInt(input.value);
   if (value < parseInt(input.max)) {
-    input.value = value + 1;
+    input.value = value + 3;
   }
+  changeSVG(input.value);
 }
 
 function decrement() {
   const input = document.getElementById('spin-button');
   let value = parseInt(input.value);
   if (value > parseInt(input.min)) {
-    input.value = value - 1;
+    input.value = value - 3;
   }
+  changeSVG(input.value);
+
 }
 
 </script>
