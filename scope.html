@@ -15,17 +15,17 @@
 <script>
 window.onload = function() {
   var svgDoc =document.getElementById('scope').contentDocument;
-  var arr = svgDoc.getElementById('arrow'); // Access an element by ID
+  var arr = svgDoc.getElementById('arrow');
   var min = svgDoc.getElementById('min_box').textContent;
   console.log(min);
-  
+
   // arr.style.transform =`rotate(${degrees}deg)`; ;
 };
 
 
 	function changeSVG(degrees) {
     var svgDoc2 =document.getElementById('scope').contentDocument;
-    var arr = svgDoc2.getElementById('arrow'); // Access an element by ID
+    var arr = svgDoc2.getElementById('arrow'); 
     arr.style.transform =`rotate(${degrees}deg)`; ;
 	}
 
