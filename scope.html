@@ -26,8 +26,13 @@
             console.log("All assets are loaded");
 			var svgDoc2 =document.getElementById('arrowobj2').contentDocument;
 						console.log("---%%$$$---" + svgDoc2);
+            var arr = svgDoc2.getElementById('arrow'); // Access an element by ID
+         			arr.style.fill = "green"; // Change color
+              arr.style.transform ='rotate(180deg)' ;
+              arr.style.transform.rotate ='180deg' ;
+              // transform: rotate(90deg);
 
-         
+
         };
 
 //        document.getElementById('arrowobj').addEventListener('load', function() {
