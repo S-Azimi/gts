@@ -1,3 +1,3 @@
-{"sasan":"maryam","1":2}
-{"sasan":"baran","1":3}
-{"sasan":"bamdad","1":4}
+{"prompt":"maryam","response":2}
+{"prompt":"baran","response":"she is a girl"}
+{"prompt":"bamdad","response":4}
